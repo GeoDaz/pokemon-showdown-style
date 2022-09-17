@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "pokemon showdown style",
+  "description": "make pokemon showdown prettier",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["https://play.pokemonshowdown.com/*"],
+      "js": ["content.js"],
+      "css": ["bootstrap.css", "style.css"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["bootstrap.css", "style.css"],
+      "use_dynamic_url": false,
+      "matches": ["https://play.pokemonshowdown.com/*"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {},
+  "host_permissions": ["https://play.pokemonshowdown.com/*"],
+  "permissions": ["scripting", "activeTab", "tabs"]
+}
